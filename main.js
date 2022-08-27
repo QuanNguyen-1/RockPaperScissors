@@ -1,15 +1,20 @@
-const win = []
+const winners = [];
 const choices = ["rock", "paper", "scissors"];
 
 function game() {
-  for(let i = 1; i<= 5; i++)
+  for (let i = 1; i <= 5; i++) {
+    playRound(i);
+  }
+  document.querySelector("button").textContent = "Play Again";
+  showWin();
 }
 
-function playRound() {
+function playRound(round) {
   const playerSelection = userChoice();
   const computerSelection = computerChoice();
-  const win = winner(playerSelection, computerSelection);
-  win.push(win);
+  const win = winnerCheck(playerSelection, computerSelection);
+  winners.push(win);
+  showRound(playerSelection, computerSelection, win, round);
 }
 
 function userChoice() {
@@ -42,8 +47,8 @@ function validateInput(choice) {
   }
 }
 
-function winner(player, com) {
-    console.log(player,com)
+function winnerCheck(player, com) {
+  //console.log(player, com);
   if (player == com) {
     return "TIE";
   } else if (
@@ -57,8 +62,19 @@ function winner(player, com) {
   }
 }
 
-function showWin(){
-    console.log(win)
-
+function showWin() {
+  let computerWins = winners.filter((winner) => winner == "PLAYER").length;
+  let playerWins = winners.filter((winner) => winner == "COMPUTER").length;
+  let ties = winners.filter((winner) => winner == "TIE").length;
+  console.log("The Results:");
+  console.log("The player has won", playerWins, "times");
+  console.log("The computer has won", computerWins, "times");
+  console.log("There have been", ties, "ties");
 }
-game();
+
+function showRound(player, computer, winner, round) {
+  console.log("Round:", round);
+  console.log("Computer has chosen:", computer);
+  console.log("Player has chosen:", player);
+  console.log("The result of this round:", winner);
+}
