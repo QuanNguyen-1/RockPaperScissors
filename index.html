@@ -4,13 +4,34 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Game</title>
+    <title>Rock Paper Scissors Game</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="flex-container">
-      <h1 class="head">Rock Paper Scissors</h1>
-      <button onclick="game()">Play the Game</button>
+    <div class="score">
+      <h1 class="ties">Ties: 0</h1>
+    </div>
+    <div class="winnerDiv">
+      <h1 class="winner"></h1>
+      <button class="reset" onclick="restart()">Play Again</button>
+    </div>
+    <div class="playerSelection">
+      <h2 class="playerScore">Your Score: 0</h2>
+      <h2 class="playerChoice"></h2>
+      <div class="playerChoices">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+      </div>
+    </div>
+    <div class="computerSelection">
+      <h2 class="computerScore">Computer's Score: 0</h2>
+      <h2 class="computerChoice"></h2>
+      <div class="computerChoices">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+      </div>
     </div>
   </body>
   <script src="main.js"></script>
